@@ -47,12 +47,14 @@ module.exports = {
             var title = req.param('txt_title');
             var name = req.param('txt_name');
             var idType = parseInt(req.param('txt_type'));
-            var price =await parseInt(req.param('txt_price'));
+            var giaString = req.param('txt_price');
+            var price =parseInt(giaString);
             var source = req.param('txt_source');
             var description = req.param('txt_des');
             var content = req.param('txt_content');
             var unitPrice = req.param('txt_unit');
-            var discount =await parseInt(req.param('txt_discount'));
+            var disString = req.param('txt_discount');
+            var discount =parseInt(disString);
             await Product.create({ //Create Product
                 id: count, title, name, idType, source, description, content, price, unitPrice, discount
             }).exec(function (err, recor) {
